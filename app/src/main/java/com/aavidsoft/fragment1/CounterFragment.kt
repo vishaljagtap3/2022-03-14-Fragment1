@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.aavidsoft.fragment1.databinding.CounterLayoutBinding
 
 class CounterFragment : Fragment() {
 
-    private lateinit var txtCount : TextView
-    private lateinit var btnMinus : Button
-    private lateinit var btnPlus : Button
+    private lateinit var binding: CounterLayoutBinding
     var count = 0
 
     override fun onCreateView(
@@ -21,23 +20,17 @@ class CounterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var view = LayoutInflater.from(context).inflate(R.layout.counter_layout, null)
+        binding = CounterLayoutBinding.inflate(layoutInflater)
 
-        txtCount = view.findViewById(R.id.txtCount)
-        btnMinus = view.findViewById(R.id.btnMinus)
-        btnPlus = view.findViewById(R.id.btnPlus)
-        txtCount.setText("$count")
-
-        btnMinus.setOnClickListener {
-            --count
-            txtCount.setText("$count")
-        }
-        btnPlus.setOnClickListener {
-            ++count
-            txtCount.setText("$count")
+        binding.btnMinus.setOnClickListener {
+            binding.txtCount.setText("${--count}")
         }
 
-        return view
+        binding.btnPlus.setOnClickListener {
+            binding.txtCount.setText("${++count}")
+        }
+
+        return binding.root
     }
 
 }
