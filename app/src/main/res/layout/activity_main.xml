@@ -13,4 +13,10 @@
         android:id="@+id/counterFragment1"
         android:name="com.aavidsoft.fragment1.CounterFragment"/>
 
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/counterFragment2"
+        android:name="com.aavidsoft.fragment1.CounterFragment"/>
+
 </LinearLayout>
