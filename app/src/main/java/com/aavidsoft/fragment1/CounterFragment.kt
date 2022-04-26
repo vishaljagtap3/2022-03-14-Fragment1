@@ -21,6 +21,7 @@ class CounterFragment : Fragment() {
     ): View? {
 
         binding = CounterLayoutBinding.inflate(layoutInflater)
+        binding.txtCount.setText("${count}")
 
         binding.btnMinus.setOnClickListener {
             binding.txtCount.setText("${--count}")
@@ -31,6 +32,11 @@ class CounterFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    fun resetCount(count : Int = 0) {
+        this.count = count
+        binding.txtCount.setText("$count")
     }
 
 }
