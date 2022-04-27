@@ -30,4 +30,5 @@
         android:id="@+id/counterFragment2"
         android:name="com.aavidsoft.fragment1.CounterFragment"/>
 
+
 </LinearLayout>
