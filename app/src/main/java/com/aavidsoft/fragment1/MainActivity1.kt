@@ -23,6 +23,7 @@ class MainActivity1 : AppCompatActivity() {
 
             supportFragmentManager.beginTransaction()
                 .add(R.id.mainContainer, counterFragment, null)
+                .addToBackStack(null)
                 .commit()
 
             /*var fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -41,6 +42,7 @@ class MainActivity1 : AppCompatActivity() {
 
             supportFragmentManager.beginTransaction()
                 .remove(counterFragments[0])
+                .addToBackStack(null)
                 .commit()
 
             /*var fragmentTransaction = supportFragmentManager.beginTransaction()
