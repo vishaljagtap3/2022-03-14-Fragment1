@@ -22,7 +22,8 @@ class MainActivity1 : AppCompatActivity() {
             counterFragments.add(counterFragment)
 
             //fragmentTransaction.add(counterFragment, CounterFragment::class.java.name)
-            fragmentTransaction.add(R.id.mainContainer, counterFragment, "counterFragment")
+            //fragmentTransaction.add(R.id.mainContainer, counterFragment, "counterFragment")
+            fragmentTransaction.replace(R.id.mainContainer, counterFragment)
             fragmentTransaction.commit()
         }
 
