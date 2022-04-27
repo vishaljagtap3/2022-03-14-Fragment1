@@ -16,15 +16,20 @@ class MainActivity1 : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnAddFragment.setOnClickListener {
-            var fragmentTransaction = supportFragmentManager.beginTransaction()
+
 
             var counterFragment = CounterFragment()
             counterFragments.add(counterFragment)
 
+            supportFragmentManager.beginTransaction()
+                .add(R.id.mainContainer, counterFragment, null)
+                .commit()
+
+            /*var fragmentTransaction = supportFragmentManager.beginTransaction()
             //fragmentTransaction.add(counterFragment, CounterFragment::class.java.name)
-            //fragmentTransaction.add(R.id.mainContainer, counterFragment, "counterFragment")
-            fragmentTransaction.replace(R.id.mainContainer, counterFragment)
-            fragmentTransaction.commit()
+            fragmentTransaction.add(R.id.mainContainer, counterFragment, "counterFragment")
+            //fragmentTransaction.replace(R.id.mainContainer, counterFragment)
+            fragmentTransaction.commit()*/
         }
 
         binding.btnRemoveFragment.setOnClickListener {
@@ -33,9 +38,14 @@ class MainActivity1 : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            var fragmentTransaction = supportFragmentManager.beginTransaction()
+
+            supportFragmentManager.beginTransaction()
+                .remove(counterFragments[0])
+                .commit()
+
+            /*var fragmentTransaction = supportFragmentManager.beginTransaction()
             fragmentTransaction.remove(counterFragments[0])
-            fragmentTransaction.commit()
+            fragmentTransaction.commit()*/
 
             counterFragments.removeAt(0)
         }
